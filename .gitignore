@@ -1,0 +1,63 @@
+# ============================================================
+# Argus AI — .gitignore
+# ============================================================
+
+# --- Environment & Secrets ---
+.env
+*.env.local
+*.env.production
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.Python
+.venv/
+venv/
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- Database & Persistent Storage ---
+*.db
+*.sqlite3
+recon.db
+chroma_db/
+
+# --- Node / Frontend ---
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/dist-ssr/
+*.local
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Logs ---
+*.log
+logs/
+
+# --- Misc ---
+.antigravityignore
