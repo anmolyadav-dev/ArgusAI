@@ -171,7 +171,7 @@ function App() {
             <Shield size={20} color="#fff" />
           </div>
           <div>
-            <h1>Antigravity AI</h1>
+            <h1>Argus AI</h1>
             <span>Reconnaissance Platform</span>
           </div>
         </div>
@@ -202,7 +202,7 @@ function App() {
             {!currentScan ? (
               <div className="welcome-state animate-slide-up">
                 <Shield className="welcome-icon text-cyan-500" />
-                <h2>Welcome to Antigravity AI</h2>
+                <h2>Welcome to Argus AI</h2>
                 <p>Start a new reconnaissance scan from the sidebar to automatically map attack surfaces, detect technologies, and identify vulnerabilities.</p>
               </div>
             ) : (

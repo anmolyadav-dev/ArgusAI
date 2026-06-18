@@ -38,7 +38,7 @@ import asyncio
 router = APIRouter(prefix="/api")
 logger = logging.getLogger(__name__)
 
-
+from backend.utils.console_log import log_human_message, log_ai_message
 
 # ============================================================
 # Progress streaming: active WS connections + replay buffer
@@ -114,7 +114,7 @@ _scan_callbacks: dict[str, any] = {}
 async def _run_scan(scan_id: str, target: str, objective: str):
     """Background task that runs the full LangGraph workflow."""
     # Register callback in global registry so workflow nodes can find it by scan_id
-    
+    _scan_callbacks[scan_id] = broadcast_progress
     try:
         # Update status and send first event
         scan = await get_scan(scan_id)
@@ -183,7 +183,7 @@ async def _run_scan(scan_id: str, target: str, objective: str):
         ))
     finally:
         # Clean up callback registry after scan ends
-        
+        _scan_callbacks.pop(scan_id, None)
 
 
 @router.get("/scan/{scan_id}")
@@ -206,6 +206,16 @@ async def get_scan_status(scan_id: str):
         "analysis": json.loads(scan.analysis_json) if scan.analysis_json else {},
         "report": json.loads(scan.report_json) if scan.report_json else {},
     }
+
+
+@router.delete("/scan/{scan_id}")
+async def delete_scan_route(scan_id: str):
+    """Delete a scan."""
+    scan = await get_scan(scan_id)
+    if not scan:
+        raise HTTPException(status_code=404, detail="Scan not found")
+    await delete_scan(scan_id)
+    return {"status": "success", "message": "Scan deleted"}
 
 
 @router.get("/scans")
@@ -277,6 +287,12 @@ async def compare_scans(target: str):
 # Chat Endpoint
 # ============================================================
 
+@router.get("/chat/{scan_id}")
+async def get_chat(scan_id: str):
+    """Get chat history for a scan."""
+    history = await get_chat_history(scan_id)
+    return [{"role": msg.role, "content": msg.content} for msg in history]
+
 @router.post("/chat")
 async def chat(request: ChatRequest):
     """
@@ -298,7 +314,7 @@ async def chat(request: ChatRequest):
             )
 
     # Save user message
-    logger.info(f"[Chat] User message for scan {request.scan_id}: {request.message}")
+    log_human_message(request.message, scan_id=request.scan_id or "")
     await save_chat_message(request.scan_id, "user", request.message)
 
     # Generate AI response
@@ -320,7 +336,7 @@ async def chat(request: ChatRequest):
     })
 
     # Save assistant message
-    logger.info(f"[Chat] AI Response for scan {request.scan_id}: {response.content[:100]}...")
+    log_ai_message(response.content, scan_id=request.scan_id or "")
     await save_chat_message(request.scan_id, "assistant", response.content)
 
     return ChatMessage(
@@ -354,15 +370,35 @@ async def list_tools():
 
 @router.websocket("/ws/{scan_id}")
 async def websocket_progress(websocket: WebSocket, scan_id: str):
+    """
+    WebSocket endpoint for streaming scan progress.
+    Connect to ws://host/api/ws/{scan_id} to receive live updates.
+    On connect, replays all buffered events so the client never misses events
+    that fired before the socket was established.
+    """
     await websocket.accept()
+
+    # Register this connection
     if scan_id not in active_connections:
         active_connections[scan_id] = []
     active_connections[scan_id].append(websocket)
+
+    # Replay any buffered progress events (catches events sent before WS connected)
+    for buffered in progress_buffer.get(scan_id, []):
+        try:
+            await websocket.send_json(buffered)
+        except Exception:
+            break
+
     try:
+        # Keep connection alive
         while True:
             data = await websocket.receive_text()
     except WebSocketDisconnect:
         if scan_id in active_connections:
-            active_connections[scan_id].remove(websocket)
+            try:
+                active_connections[scan_id].remove(websocket)
+            except ValueError:
+                pass
             if not active_connections[scan_id]:
                 del active_connections[scan_id]
