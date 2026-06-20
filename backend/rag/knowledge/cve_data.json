@@ -1,0 +1,202 @@
+[
+    {
+        "id": "CVE-2024-3400",
+        "description": "Palo Alto Networks PAN-OS: OS Command Injection in GlobalProtect Gateway. A command injection vulnerability in the GlobalProtect feature of Palo Alto Networks PAN-OS software enables an unauthenticated attacker to execute arbitrary code with root privileges on the firewall.",
+        "severity": "critical",
+        "cvss": 10.0,
+        "affected": "PAN-OS GlobalProtect",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2024-3400"]
+    },
+    {
+        "id": "CVE-2024-21887",
+        "description": "Ivanti Connect Secure: Command injection vulnerability allowing an authenticated administrator to send specially crafted requests and execute arbitrary commands on the appliance.",
+        "severity": "critical",
+        "cvss": 9.1,
+        "affected": "Ivanti Connect Secure, Ivanti Policy Secure",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2024-21887"]
+    },
+    {
+        "id": "CVE-2023-44228",
+        "description": "Apache Log4j2 Remote Code Execution. Certain versions of Apache Log4j2 allow remote code execution via crafted log messages containing JNDI lookup patterns.",
+        "severity": "critical",
+        "cvss": 10.0,
+        "affected": "Apache Log4j 2.x",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2021-44228"]
+    },
+    {
+        "id": "CVE-2023-22515",
+        "description": "Atlassian Confluence Data Center and Server: Broken Access Control vulnerability allowing an attacker to create unauthorized admin accounts and access Confluence instances.",
+        "severity": "critical",
+        "cvss": 10.0,
+        "affected": "Atlassian Confluence",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2023-22515"]
+    },
+    {
+        "id": "CVE-2023-46747",
+        "description": "F5 BIG-IP: Authentication bypass vulnerability allowing unauthenticated attackers to execute arbitrary system commands through the Traffic Management User Interface.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "F5 BIG-IP",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2023-46747"]
+    },
+    {
+        "id": "CVE-2024-1709",
+        "description": "ConnectWise ScreenConnect Authentication Bypass. An authentication bypass vulnerability allows attackers to gain administrative access to the ScreenConnect server.",
+        "severity": "critical",
+        "cvss": 10.0,
+        "affected": "ConnectWise ScreenConnect",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2024-1709"]
+    },
+    {
+        "id": "CVE-2023-34362",
+        "description": "MOVEit Transfer SQL Injection vulnerability. A SQL injection vulnerability allows unauthenticated attackers to gain access to the MOVEit Transfer database.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "Progress MOVEit Transfer",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2023-34362"]
+    },
+    {
+        "id": "CVE-2023-27997",
+        "description": "Fortinet FortiOS heap-based buffer overflow vulnerability in SSL-VPN pre-authentication. Allows remote code execution via crafted requests.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "FortiOS, FortiProxy",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2023-27997"]
+    },
+    {
+        "id": "CVE-2024-0204",
+        "description": "GoAnywhere MFT Authentication Bypass. Allows an unauthorized user to create an admin user via the administration portal.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "Fortra GoAnywhere MFT",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2024-0204"]
+    },
+    {
+        "id": "CVE-2023-23397",
+        "description": "Microsoft Outlook Elevation of Privilege Vulnerability. Allows an attacker to obtain Net-NTLMv2 hashes from Outlook clients via specially crafted emails.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "Microsoft Outlook",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2023-23397"]
+    },
+    {
+        "id": "CVE-2021-44228",
+        "description": "Apache Log4j2 JNDI features do not protect against attacker-controlled LDAP and other JNDI related endpoints. An attacker who can control log messages or log message parameters can execute arbitrary code loaded from LDAP servers when message lookup substitution is enabled.",
+        "severity": "critical",
+        "cvss": 10.0,
+        "affected": "Apache Log4j2 2.0-beta9 through 2.14.1",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2021-44228"]
+    },
+    {
+        "id": "CVE-2021-26855",
+        "description": "Microsoft Exchange Server Remote Code Execution (ProxyLogon). Server-side request forgery vulnerability allowing unauthenticated attackers to send arbitrary HTTP requests.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "Microsoft Exchange Server",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2021-26855"]
+    },
+    {
+        "id": "CVE-2019-19781",
+        "description": "Citrix ADC and Gateway Directory Traversal vulnerability allowing remote code execution without authentication.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "Citrix ADC, Citrix Gateway",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2019-19781"]
+    },
+    {
+        "id": "CVE-2024-23897",
+        "description": "Jenkins: Arbitrary file read vulnerability through the CLI. Allows unauthenticated attackers to read arbitrary files from the Jenkins controller file system.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "Jenkins",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2024-23897"]
+    },
+    {
+        "id": "CVE-2023-42793",
+        "description": "JetBrains TeamCity Authentication Bypass. Allows unauthenticated attackers to achieve remote code execution on TeamCity servers.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "JetBrains TeamCity",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2023-42793"]
+    },
+    {
+        "id": "CVE-2023-20198",
+        "description": "Cisco IOS XE Web UI Privilege Escalation vulnerability. Allows an unauthenticated remote attacker to create an account on the affected system with privilege level 15 access.",
+        "severity": "critical",
+        "cvss": 10.0,
+        "affected": "Cisco IOS XE",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2023-20198"]
+    },
+    {
+        "id": "CVE-2024-27198",
+        "description": "JetBrains TeamCity Authentication Bypass via alternate path. Allows attackers to bypass authentication and gain admin control.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "JetBrains TeamCity",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2024-27198"]
+    },
+    {
+        "id": "CVE-2023-3519",
+        "description": "Citrix NetScaler ADC and NetScaler Gateway: Unauthenticated remote code execution due to a stack buffer overflow.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "Citrix NetScaler ADC, NetScaler Gateway",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2023-3519"]
+    },
+    {
+        "id": "CVE-2023-50164",
+        "description": "Apache Struts: File upload logic vulnerability allowing path traversal and potential remote code execution.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "Apache Struts 2.x",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2023-50164"]
+    },
+    {
+        "id": "CVE-2024-6387",
+        "description": "OpenSSH: regreSSHion - race condition in signal handler may allow unauthenticated remote code execution as root on glibc-based Linux systems.",
+        "severity": "high",
+        "cvss": 8.1,
+        "affected": "OpenSSH 8.5p1 - 9.7p1",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2024-6387"]
+    },
+    {
+        "id": "CVE-2024-4577",
+        "description": "PHP CGI Argument Injection: In certain configurations of PHP on Windows, may allow unauthenticated attackers to execute arbitrary code.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "PHP CGI on Windows",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2024-4577"]
+    },
+    {
+        "id": "CVE-2023-44487",
+        "description": "HTTP/2 Rapid Reset Attack (DDoS). Vulnerability in HTTP/2 protocol implementation allows denial of service through rapid stream creation and cancellation.",
+        "severity": "high",
+        "cvss": 7.5,
+        "affected": "HTTP/2 implementations (nginx, Apache, Node.js, etc.)",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2023-44487"]
+    },
+    {
+        "id": "CVE-2023-4966",
+        "description": "Citrix Bleed: Sensitive information disclosure in Citrix NetScaler ADC and Gateway allowing session token theft.",
+        "severity": "critical",
+        "cvss": 9.4,
+        "affected": "Citrix NetScaler ADC, NetScaler Gateway",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2023-4966"]
+    },
+    {
+        "id": "CVE-2022-1388",
+        "description": "F5 BIG-IP iControl REST Authentication Bypass. Allows unauthenticated attackers to execute arbitrary system commands.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "F5 BIG-IP",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2022-1388"]
+    },
+    {
+        "id": "CVE-2023-36845",
+        "description": "Juniper Junos OS: Remote code execution vulnerability in J-Web allowing unauthenticated attackers to execute arbitrary commands.",
+        "severity": "critical",
+        "cvss": 9.8,
+        "affected": "Juniper Junos OS",
+        "references": ["https://nvd.nist.gov/vuln/detail/CVE-2023-36845"]
+    }
+]

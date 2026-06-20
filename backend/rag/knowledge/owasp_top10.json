@@ -1,0 +1,185 @@
+[
+    {
+        "id": "A01:2021",
+        "name": "Broken Access Control",
+        "description": "Access control enforces policies such that users cannot act outside of their intended permissions. Failures typically lead to unauthorized information disclosure, modification, or destruction of data, or performing a business function outside the user's limits.",
+        "common_vulnerabilities": [
+            "IDOR (Insecure Direct Object References)",
+            "Bypassing access control checks",
+            "API access without authentication",
+            "Privilege escalation",
+            "CORS misconfiguration"
+        ],
+        "prevention": [
+            "Deny by default",
+            "Implement access control mechanisms centrally",
+            "Enforce record ownership",
+            "Disable directory listing",
+            "Log access control failures"
+        ]
+    },
+    {
+        "id": "A02:2021",
+        "name": "Cryptographic Failures",
+        "description": "Failures related to cryptography which often lead to sensitive data exposure. This includes use of weak algorithms, improper key management, and transmission of data in clear text.",
+        "common_vulnerabilities": [
+            "Data transmitted in clear text (HTTP)",
+            "Weak cryptographic algorithms (MD5, SHA1)",
+            "Hardcoded encryption keys",
+            "Missing TLS configuration",
+            "Insufficient key length"
+        ],
+        "prevention": [
+            "Classify data and apply controls",
+            "Encrypt all data in transit with TLS",
+            "Use strong algorithms (AES-256, RSA-2048+)",
+            "Proper key management",
+            "Disable caching of sensitive data"
+        ]
+    },
+    {
+        "id": "A03:2021",
+        "name": "Injection",
+        "description": "Injection flaws occur when untrusted data is sent to an interpreter as part of a command or query. This includes SQL, NoSQL, OS command, LDAP, and XSS injections.",
+        "common_vulnerabilities": [
+            "SQL Injection",
+            "Cross-Site Scripting (XSS)",
+            "OS Command Injection",
+            "LDAP Injection",
+            "Template Injection"
+        ],
+        "prevention": [
+            "Use parameterized queries",
+            "Input validation (whitelist)",
+            "Escape special characters",
+            "Use ORMs",
+            "Implement Content Security Policy"
+        ]
+    },
+    {
+        "id": "A04:2021",
+        "name": "Insecure Design",
+        "description": "Insecure design focuses on risks related to design and architectural flaws. This calls for more use of threat modeling, secure design patterns, and reference architectures.",
+        "common_vulnerabilities": [
+            "Missing rate limiting",
+            "Lack of input validation at design level",
+            "Missing bot detection",
+            "No security requirements in design phase"
+        ],
+        "prevention": [
+            "Threat modeling",
+            "Secure development lifecycle",
+            "Security design patterns",
+            "Limit resource consumption"
+        ]
+    },
+    {
+        "id": "A05:2021",
+        "name": "Security Misconfiguration",
+        "description": "The application might be vulnerable if it is missing appropriate security hardening, has improperly configured permissions, unnecessary features enabled, or default accounts/passwords unchanged.",
+        "common_vulnerabilities": [
+            "Default credentials",
+            "Unnecessary features enabled",
+            "Missing security headers",
+            "Verbose error messages",
+            "Unpatched software",
+            "Open cloud storage buckets"
+        ],
+        "prevention": [
+            "Repeatable hardening processes",
+            "Remove unused features",
+            "Review cloud permissions",
+            "Automated configuration verification",
+            "Implement security headers"
+        ]
+    },
+    {
+        "id": "A06:2021",
+        "name": "Vulnerable and Outdated Components",
+        "description": "Components such as libraries, frameworks, and other software modules run with the same privileges as the application. If a vulnerable component is exploited, it can facilitate serious data loss or server takeover.",
+        "common_vulnerabilities": [
+            "Unpatched operating systems",
+            "Outdated libraries with known CVEs",
+            "Unmaintained software",
+            "Missing vulnerability scanning"
+        ],
+        "prevention": [
+            "Inventory all components",
+            "Monitor CVE databases",
+            "Automated dependency scanning",
+            "Only use components from official sources",
+            "Regular patching schedule"
+        ]
+    },
+    {
+        "id": "A07:2021",
+        "name": "Identification and Authentication Failures",
+        "description": "Authentication-related attacks including credential stuffing, brute force, and session management weaknesses. Confirming identity, authentication, and session management is critical.",
+        "common_vulnerabilities": [
+            "Credential stuffing",
+            "Brute force attacks",
+            "Weak passwords",
+            "Missing MFA",
+            "Session fixation"
+        ],
+        "prevention": [
+            "Multi-factor authentication",
+            "Strong password policies",
+            "Rate limiting login attempts",
+            "Secure session management",
+            "Password breach detection"
+        ]
+    },
+    {
+        "id": "A08:2021",
+        "name": "Software and Data Integrity Failures",
+        "description": "Software and data integrity failures relate to code and infrastructure that does not protect against integrity violations. This includes insecure CI/CD pipelines and auto-update mechanisms.",
+        "common_vulnerabilities": [
+            "Insecure deserialization",
+            "CI/CD pipeline compromise",
+            "Unsigned software updates",
+            "Dependency confusion attacks"
+        ],
+        "prevention": [
+            "Digital signatures for software",
+            "Verify dependencies (checksums)",
+            "Secure CI/CD pipelines",
+            "Code review processes"
+        ]
+    },
+    {
+        "id": "A09:2021",
+        "name": "Security Logging and Monitoring Failures",
+        "description": "Without logging and monitoring, breaches cannot be detected. Insufficient logging, detection, monitoring, and active response allows attackers to persist undetected.",
+        "common_vulnerabilities": [
+            "Missing audit logs",
+            "Logs not monitored",
+            "No alerting for suspicious activity",
+            "Insufficient log detail"
+        ],
+        "prevention": [
+            "Log all access control and authentication events",
+            "Ensure logs are in a format for log management solutions",
+            "Establish incident response plan",
+            "Implement monitoring and alerting"
+        ]
+    },
+    {
+        "id": "A10:2021",
+        "name": "Server-Side Request Forgery (SSRF)",
+        "description": "SSRF flaws occur whenever a web application fetches a remote resource without validating the user-supplied URL. This allows attackers to coerce the application to send crafted requests to unexpected destinations.",
+        "common_vulnerabilities": [
+            "Cloud metadata endpoint access (169.254.169.254)",
+            "Internal service scanning",
+            "File protocol abuse",
+            "Bypass of network access controls"
+        ],
+        "prevention": [
+            "Sanitize and validate all URL input",
+            "Enforce URL schema allowlist",
+            "Disable HTTP redirections",
+            "Network segmentation",
+            "Block access to metadata endpoints"
+        ]
+    }
+]

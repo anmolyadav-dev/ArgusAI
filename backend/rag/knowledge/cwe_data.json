@@ -1,0 +1,107 @@
+[
+    {
+        "id": "CWE-79",
+        "name": "Cross-site Scripting (XSS)",
+        "description": "The application does not properly neutralize user-controllable input before placing it in output that is used as a web page. This allows attackers to inject malicious scripts.",
+        "impact": "Session hijacking, credential theft, website defacement, malware distribution.",
+        "mitigation": "Input validation, output encoding, Content Security Policy (CSP), HTTPOnly cookies."
+    },
+    {
+        "id": "CWE-89",
+        "name": "SQL Injection",
+        "description": "The application constructs SQL queries using unsanitized user input. Attackers can inject SQL commands to access, modify, or delete data.",
+        "impact": "Data breach, data manipulation, privilege escalation, full database compromise.",
+        "mitigation": "Parameterized queries, prepared statements, ORM usage, input validation, least-privilege database accounts."
+    },
+    {
+        "id": "CWE-78",
+        "name": "OS Command Injection",
+        "description": "The application passes unsanitized user input to a system shell. Attackers can execute arbitrary operating system commands.",
+        "impact": "Full server compromise, data exfiltration, lateral movement.",
+        "mitigation": "Avoid shell commands, use library functions, input validation, sandboxing."
+    },
+    {
+        "id": "CWE-22",
+        "name": "Path Traversal",
+        "description": "The application uses user input to construct file paths without proper sanitization. Attackers can access files outside the intended directory.",
+        "impact": "Sensitive file disclosure, configuration leak, source code theft.",
+        "mitigation": "Canonicalize paths, use chroot, whitelist allowed files, validate input."
+    },
+    {
+        "id": "CWE-287",
+        "name": "Improper Authentication",
+        "description": "The application does not properly verify the identity of users. Authentication mechanisms can be bypassed.",
+        "impact": "Unauthorized access, account takeover, privilege escalation.",
+        "mitigation": "Multi-factor authentication, strong password policies, secure session management."
+    },
+    {
+        "id": "CWE-862",
+        "name": "Missing Authorization",
+        "description": "The application does not check whether a user is authorized to perform an action. Users can access functionality they should not have.",
+        "impact": "Data exposure, unauthorized operations, privilege escalation.",
+        "mitigation": "Implement access controls, use RBAC, verify permissions on every request."
+    },
+    {
+        "id": "CWE-918",
+        "name": "Server-Side Request Forgery (SSRF)",
+        "description": "The application makes HTTP requests based on user input without validation. Attackers can make the server request internal resources.",
+        "impact": "Internal network scanning, cloud metadata theft, internal service exploitation.",
+        "mitigation": "URL validation, allowlist domains, disable redirects, network segmentation."
+    },
+    {
+        "id": "CWE-502",
+        "name": "Deserialization of Untrusted Data",
+        "description": "The application deserializes data from untrusted sources. Malicious serialized objects can execute arbitrary code.",
+        "impact": "Remote code execution, denial of service.",
+        "mitigation": "Avoid native deserialization, use JSON, implement integrity checks."
+    },
+    {
+        "id": "CWE-352",
+        "name": "Cross-Site Request Forgery (CSRF)",
+        "description": "The application does not verify that a request was intentionally sent by the user. Attackers can trick users into performing unintended actions.",
+        "impact": "Unauthorized actions, state changes, fund transfers.",
+        "mitigation": "Anti-CSRF tokens, SameSite cookies, Referer header validation."
+    },
+    {
+        "id": "CWE-306",
+        "name": "Missing Authentication for Critical Function",
+        "description": "A critical function in the application can be accessed without authentication. Administrative functions are exposed.",
+        "impact": "Full application compromise, unauthorized administration.",
+        "mitigation": "Require authentication for all sensitive endpoints, API key verification."
+    },
+    {
+        "id": "CWE-798",
+        "name": "Use of Hard-coded Credentials",
+        "description": "The application contains hard-coded passwords, API keys, or cryptographic keys in source code.",
+        "impact": "Unauthorized access, cannot change credentials without code update.",
+        "mitigation": "Use environment variables, secrets management, key rotation."
+    },
+    {
+        "id": "CWE-611",
+        "name": "XML External Entity (XXE)",
+        "description": "The XML parser processes external entity references in XML input. Attackers can read files, perform SSRF, or cause DoS.",
+        "impact": "File disclosure, SSRF, denial of service.",
+        "mitigation": "Disable external entities, use JSON, update XML parsers."
+    },
+    {
+        "id": "CWE-434",
+        "name": "Unrestricted File Upload",
+        "description": "The application allows users to upload files without proper validation. Attackers can upload malicious files (webshells).",
+        "impact": "Remote code execution, server compromise.",
+        "mitigation": "Validate file type, use allowlists, store outside webroot, rename files."
+    },
+    {
+        "id": "CWE-200",
+        "name": "Information Exposure",
+        "description": "The application exposes sensitive information through error messages, headers, or responses that should be restricted.",
+        "impact": "Information gathering for attackers, credential exposure.",
+        "mitigation": "Custom error pages, remove sensitive headers, log errors server-side only."
+    },
+    {
+        "id": "CWE-269",
+        "name": "Improper Privilege Management",
+        "description": "The application does not properly manage user privileges. Users can escalate their access level.",
+        "impact": "Privilege escalation, unauthorized administrative access.",
+        "mitigation": "Principle of least privilege, regular privilege audits, RBAC."
+    }
+]
