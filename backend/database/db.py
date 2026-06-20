@@ -136,3 +136,11 @@ async def get_chat_history(scan_id: str) -> list[ChatHistory]:
             .order_by(ChatHistory.created_at.asc())
         )
         return list(result.scalars().all())
+
+async def delete_scan(scan_id: str):
+    """Delete a scan and its chat history."""
+    from sqlalchemy import delete
+    async with async_session() as session:
+        await session.execute(delete(ChatHistory).where(ChatHistory.scan_id == scan_id))
+        await session.execute(delete(ScanRecord).where(ScanRecord.id == scan_id))
+        await session.commit()
