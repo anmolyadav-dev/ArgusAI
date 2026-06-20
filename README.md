@@ -28,14 +28,16 @@ The platform uses a clean, three-tier architecture:
 
 *   Python 3.13+
 *   Node.js 22+
-*   [Ollama](https://ollama.com/) installed and running locally with `llama3.1:8b` model (`ollama run llama3.1:8b`).
 *   Security tools installed in your PATH: `subfinder`, `assetfinder`, `sublist3r`, `httpx`, `nuclei`, `dnsx`, `ffuf`, `katana`, `waybackurls`, `gospider`, `cloud_enum`.
+*   **LLM Provider (Choose One)**:
+    *   **Google Gemini (Recommended/Easiest)**: A Gemini API key (no local installation required).
+    *   **Ollama (Local)**: Installed and running locally with the `phi3` or `llama3.1:8b` model.
 
 ## Configuration (Gemini API or Ollama)
 
-By default, the platform is configured to use a lightweight local model (`phi3`) via Ollama. 
-If you do not have Ollama installed or prefer to use **Google Gemini**, edit `backend/config.py`:
+By default, the platform is configured to use a local Ollama instance. However, **you do not need Ollama installed** if you provide a Gemini API Key. If a Gemini key is provided, the platform automatically bypasses Ollama and routes all agent orchestration to Gemini.
 
+To configure Gemini:
 ```bash
 # Copy the sample environment file
 cp .env.sample .env
@@ -43,11 +45,11 @@ cp .env.sample .env
 # Edit .env to add your API key
 nano .env
 ```
-Inside `.env`, uncomment and set the key:
+Inside `.env`, set your Gemini API key:
 ```env
 RECON_GEMINI_API_KEY="YOUR_GEMINI_API_KEY_HERE"
 ```
-If a Gemini key is provided, the platform will automatically bypass Ollama and use Gemini for all agents.
+The platform will automatically start using Gemini for the Planner, Analysis, and Report agents.
 
 ## Setup & Running
 
